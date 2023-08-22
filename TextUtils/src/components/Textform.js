@@ -17,6 +17,10 @@ export default function Textform(props) {
   const onhandler = (event) => {
     setText(event.target.value);
   };
+  const extraSpace=()=>{
+    var newtext=text?.split(/[ ]+/);
+    setText(newtext.join(" "));
+  }
   const speak = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
@@ -58,6 +62,9 @@ export default function Textform(props) {
           </button>
           <button className="btn btn-primary my-2 mx-2" onClick={changeDO}>
             Convert to LowerCase
+          </button>
+          <button className="btn btn-primary my-2 mx-2" onClick={extraSpace}>
+            Remove extra spaces
           </button>
           <button className="btn btn-primary my-2 mx-2" onClick={copy}>
             Copy to Clipboard
