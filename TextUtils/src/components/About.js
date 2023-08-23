@@ -25,7 +25,7 @@ export default function About() {
   return (
     <><div className='container mx-5' style={Mystyle}>
     <h2>About Us:</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vero deserunt magni aut quis, delectus reprehenderit facilis earum nostrum voluptatibus deleniti quas similique doloribus reiciendis atque enim. Repudiandae aspernatur laudantium sunt ipsa? Doloribus aperiam recusandae quasi vitae asperiores neque qui beatae tempora ratione iusto blanditiis assumenda perspiciatis maiores molestias, at optio ut error quaerat et veniam debitis.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, unde iure rerum libero odit necessitatibus ipsum totam consectetur eveniet minus quia, voluptate tempora obcaecati autem consequatur nesciunt quisquam facilis eos dolor molestias modi possimus voluptatibus amet magnam. Nihil obcaecati tenetur vel quisquam placeat sint cupiditate? Modi nam quod id similique quidem temporibus quo dicta aliquid voluptatum!.</p>
     <div className="container mb-3">
     <h3>Feedback</h3>
     <label className="form-label">Email address</label>
