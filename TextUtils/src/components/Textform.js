@@ -46,13 +46,14 @@ export default function Textform(props) {
   let resultc = consonant();
   return (
     <>
-      <div>
+      <div className="container" style={{color:props.mode==='dark'? 'white':'black'}}>
         <div className="mb-3">
           <h1>{props.heading}</h1>
           <textarea
             className="form-control my-3"
             value={text}
             onChange={onhandler}
+            style={{backgroundColor:props.mode==='dark'? 'grey':'white',color:props.mode==='dark'? 'white':'grey'}}
             placeholder="Enter your text..."
             id="mybox1"
             rows="8"
@@ -77,7 +78,7 @@ export default function Textform(props) {
           </button>
         </div>
       </div>
-      <div className="container">
+      <div className="container" style={{color:props.mode==='dark'? 'white':'black'}}>
         <h2>Text info</h2>
         <p>
           {" "}
@@ -87,7 +88,7 @@ export default function Textform(props) {
           {resultv} vowels and {resultc} consonent
         </p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text?.length>0 ? text : "Enter something in the textarea to preview it here" }</p>
       </div>
     </>
   );
