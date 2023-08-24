@@ -5,14 +5,17 @@ export default function Textform(props) {
   const changeUP = () => {
     let n = text.toUpperCase();
     setText(n);
+    props.showAlert("Converted to Uppercase",'success')
   };
   const changeDO = () => {
     let n = text.toLowerCase();
     setText(n);
+    props.showAlert("Converted to Lowercase",'success')
   };
   const clear = () => {
     let n = "";
     setText(n);
+    props.showAlert("Cleared",'success')
   };
   const onhandler = (event) => {
     setText(event.target.value);
@@ -20,6 +23,7 @@ export default function Textform(props) {
   const extraSpace=()=>{
     var newtext=text?.split(/[ ]+/);
     setText(newtext.join(" "));
+    props.showAlert("Removed Extra spaces",'success')
   }
   const speak = () => {
     let msg = new SpeechSynthesisUtterance();
@@ -28,7 +32,7 @@ export default function Textform(props) {
   };
   const copy = () => {
     navigator.clipboard.writeText(text);
-    alert("Copied to clipboard");
+    props.showAlert("Coppied to Clipboard",'success')
   };
 
   let characters = text?.length;
