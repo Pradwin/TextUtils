@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Textform(props) {
-  const [text, setText] = useState();
+  const [text, setText] = useState(null);
   const changeUP = () => {
     let n = text.toUpperCase();
     setText(n);
@@ -36,7 +36,7 @@ export default function Textform(props) {
   };
 
   let characters = text?.length;
-  let words = text?.split(" ").length;
+  let words =(text?.split(" ").length)-1;
 
   const vowels = () => {
     const count = text?.match(/[aeiou]/gi)?.length;

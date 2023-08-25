@@ -22,11 +22,13 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor= "grey";
       showAlert('Dark mode Enabled','success');
+      document.title="Textutil-Dark Mode";
     }
     else{
       setMode('light');
       document.body.style.backgroundColor= "white";
       showAlert('Light mode Enabled','success');
+      document.title="Textutil-Light Mode";
     }
   }
   return (
