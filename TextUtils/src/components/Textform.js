@@ -5,26 +5,26 @@ export default function Textform(props) {
   const changeUP = () => {
     let n = text.toUpperCase();
     setText(n);
-    props.showAlert("Converted to Uppercase",'success')
+    props.showAlert("Converted to Uppercase", "success");
   };
   const changeDO = () => {
     let n = text.toLowerCase();
     setText(n);
-    props.showAlert("Converted to Lowercase",'success')
+    props.showAlert("Converted to Lowercase", "success");
   };
   const clear = () => {
     let n = "";
     setText(n);
-    props.showAlert("Cleared",'success')
+    props.showAlert("Cleared", "success");
   };
   const onhandler = (event) => {
     setText(event.target.value);
   };
-  const extraSpace=()=>{
-    var newtext=text.split(/[ ]+/);
+  const extraSpace = () => {
+    var newtext = text.split(/[ ]+/);
     setText(newtext.join(" "));
-    props.showAlert("Removed Extra spaces",'success')
-  }
+    props.showAlert("Removed Extra spaces", "success");
+  };
   const speak = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
@@ -32,11 +32,13 @@ export default function Textform(props) {
   };
   const copy = () => {
     navigator.clipboard.writeText(text);
-    props.showAlert("Coppied to Clipboard",'success')
+    props.showAlert("Coppied to Clipboard", "success");
   };
 
   let characters = text?.length;
-  let words =text.split(" ").filter((element)=>{return element.length!==0}).length;
+  let words = text.split(" ").filter((element) => {
+    return element.length !== 0;
+  }).length;
 
   const vowels = () => {
     const count = text.match(/[aeiou]/gi)?.length;
@@ -50,39 +52,72 @@ export default function Textform(props) {
   let resultc = consonant();
   return (
     <>
-      <div className="container" style={{color:props.mode==='dark'? 'white':'black'}}>
+      <div
+        className="container"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
         <div className="mb-3">
           <h1>{props.heading}</h1>
           <textarea
             className="form-control my-3"
             value={text}
             onChange={onhandler}
-            style={{backgroundColor:props.mode==='dark'? '#343f4b':'white',color:props.mode==='dark'? 'white':'grey'}}
+            style={{
+              backgroundColor: props.mode === "dark" ? "#343f4b" : "white",
+              color: props.mode === "dark" ? "white" : "grey",
+            }}
             placeholder="Enter your text..."
             id="mybox1"
             rows="8"
           ></textarea>
-          <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={changeUP}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-primary my-2 mx-2"
+            onClick={changeUP}
+          >
             Convert to UpperCase
           </button>
-          <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={changeDO}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-primary my-2 mx-2"
+            onClick={changeDO}
+          >
             Convert to LowerCase
           </button>
-          <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={extraSpace}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-primary my-2 mx-2"
+            onClick={extraSpace}
+          >
             Remove extra spaces
           </button>
-          <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={copy}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-primary my-2 mx-2"
+            onClick={copy}
+          >
             Copy to Clipboard
           </button>
-          <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={speak}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-primary my-2 mx-2"
+            onClick={speak}
+          >
             Speak
           </button>
-          <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={clear}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-primary my-2 mx-2"
+            onClick={clear}
+          >
             Clear
           </button>
         </div>
       </div>
-      <div className="container" style={{color:props.mode==='dark'? 'white':'black'}}>
+      <div
+        className="container"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
         <h2>Text info</h2>
         <p>
           {" "}
@@ -92,7 +127,7 @@ export default function Textform(props) {
           {resultv} vowels and {resultc} consonent
         </p>
         <h2>Preview</h2>
-        <p>{text.length>0 ? text : "Nothing to preview" }</p>
+        <p>{text.length > 0 ? text : "Nothing to preview"}</p>
       </div>
     </>
   );
