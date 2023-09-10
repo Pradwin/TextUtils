@@ -36,7 +36,7 @@ export default function Textform(props) {
   };
 
   let characters = text?.length;
-  let words = text.split(" ").filter((element) => {
+  let words = text.split(/\s+/).filter((element) => {
     return element.length !== 0;
   }).length;
 
